@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SearchTicket">
+  <test name="CheckPageTitle">
+    <classes>
+      <class name="com.dr.tests.SearchTicket"/>
+    </classes>
+  </test> <!-- CheckPageTitle -->
+</suite> <!-- SearchTicket -->
