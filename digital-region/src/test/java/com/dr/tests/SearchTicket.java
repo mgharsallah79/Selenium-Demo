@@ -16,6 +16,7 @@ public class SearchTicket {
     public void beforeClass() {
     	System.setProperty("webdriver.chrome.driver", "C:\\Users\\mahdigharsallah\\eclipse\\java-oxygen\\eclipse\\chromedriver.exe");
     	driver = new ChromeDriver();
+    	driver.manage().window().maximize();
     }
 
     @AfterClass
