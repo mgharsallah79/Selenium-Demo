@@ -18,7 +18,8 @@ public class SearchTicket {
     	System.setProperty("webdriver.chrome.driver", "C:\\Users\\mahdigharsallah\\eclipse\\java-oxygen\\eclipse\\chromedriver.exe");
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--start-maximized");
-    	driver = new ChromeDriver();
+    	options.addArguments("--test-type");
+    	driver = new ChromeDriver(options);
     }
 
     @AfterClass
