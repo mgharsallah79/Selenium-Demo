@@ -30,7 +30,7 @@ public class SearchTicket {
     @Test
     public void verifyPageTitle() {
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         driver.get("https://www.ter.sncf.com/bretagne");
 
