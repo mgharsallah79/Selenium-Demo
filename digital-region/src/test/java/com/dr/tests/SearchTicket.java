@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -15,8 +16,9 @@ public class SearchTicket {
     @BeforeClass
     public void beforeClass() {
     	System.setProperty("webdriver.chrome.driver", "C:\\Users\\mahdigharsallah\\eclipse\\java-oxygen\\eclipse\\chromedriver.exe");
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--start-maximized");
     	driver = new ChromeDriver();
-    	driver.manage().window().maximize();
     }
 
     @AfterClass
