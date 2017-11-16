@@ -1,9 +1,15 @@
 package com.tr.pageobjects;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.openqa.selenium.WebElement;
 
 public class HorairesEtAchats {
@@ -19,11 +25,11 @@ public class HorairesEtAchats {
 	 @FindBy(id="rh-depart-gare")
 	 WebElement departTextBox;
 	 
-	 @FindBy(id="ui-id-1")
-	 WebElement gareDepartautoOptions;
-	 
 	 @FindBy(id="rh-arrivee-gare")
 	 WebElement arriveeTextBox;
+	 
+	 @FindBy(className="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all")
+	 List<WebElement> departureArrivalOptions;
 	 
 	 @FindBy(id="rh_date")
 	 WebElement dateAllerSelector;
@@ -67,21 +73,17 @@ public class HorairesEtAchats {
 	 
 	 public void enterGareDeDepart(String gareDeDepart) {
 		 
-		 departTextBox.sendKeys(gareDeDepart);
-		 //departTextBox.sendKeys(Keys.ARROW_DOWN);
-		 //departTextBox.sendKeys(Keys.ARROW_UP);
-		 //departTextBox.click();
-		 //departTextBox.sendKeys(Keys.ARROW_DOWN);
-		 departTextBox.sendKeys(Keys.ENTER);
+		 departTextBox.sendKeys(gareDeDepart);	
+		 _driver.findElement(By.xpath("//span[@title='Rennes']")).click();
+		 //selectOptionFromAutosuggestionList(departureArrivalOptions,gareDeDepart);
+    	
 	 }
 	 
 	 public void enterGareArrivee(String gareArrivee) {
 		 
 		 arriveeTextBox.sendKeys(gareArrivee);
-		 //arriveeTextBox.sendKeys(Keys.ARROW_DOWN);
-		 //arriveeTextBox.sendKeys(Keys.ARROW_UP);
-		 //arriveeTextBox.click();
-		 arriveeTextBox.sendKeys(Keys.ENTER);
+		 _driver.findElement(By.xpath("//span[@title='St-Malo']")).click();
+		 //selectOptionFromAutosuggestionList(departureArrivalOptions,gareArrivee);
 	 }
 	 
 	 public void selectDepartureDate(String departureDate) {
@@ -94,6 +96,24 @@ public class HorairesEtAchats {
 	 public void rechercherHoraires() {
 		 
 		 submitButton.click();
+	 }
+	 
+	 private void selectOptionFromAutosuggestionList(List<WebElement> optionsList, String optionToSelect) {
+		 
+			/* WebDriverWait wait = new WebDriverWait(driver, 10);
+		 WebElement element = (WebElement) wait.until(
+		         ExpectedConditions.visibilityOfAllElements(departureArrivalOptions);*/
+		 
+		 System.out.println("options list size is: " + optionsList.size());
+		 
+		 for(WebElement option : optionsList){
+		        if(option.getText().equals(optionToSelect)) {
+		        	System.out.println("Trying to select: "+optionToSelect);
+		            option.click();
+		            break;
+	   	    }
+		}  
+		 
 	 }
 	 
 	 

@@ -30,7 +30,7 @@ public class SearchTicket {
     @AfterTest
     public void teardown() {
     	
-    	//driver.quit();
+    	driver.quit();
     }
               
     @Test
@@ -43,14 +43,15 @@ public class SearchTicket {
     	horairesetachats.selectDepartGareMode();
     	horairesetachats.enterGareDeDepart("Rennes");
     	horairesetachats.enterGareArrivee("St-Malo");
-    	horairesetachats.selectDepartureDate("16/11/2017");
+    	horairesetachats.selectDepartureDate("17/11/2017");
     	horairesetachats.rechercherHoraires();   
     	
     	//Assert    	
     	resultatsderecherche = new ResultatsDeRecherche(driver);
     	String actualTitle = resultatsderecherche.getPageTitle();
-        String expectedTitle = "SNCF TER Bretagne - Horaires de Rennes à Saint-Malo";
-        Assert.assertTrue(actualTitle.contains(expectedTitle));    	    	  	
+    	System.out.println("titre de la page: " + actualTitle);
+        String expectedTitle = "TER Bretagne - Horaires de Rennes à St-Malo";
+        Assert.assertTrue(actualTitle.equals(expectedTitle));    	    	  	
     }
     
     
