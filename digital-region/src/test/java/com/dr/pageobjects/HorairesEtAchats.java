@@ -1,4 +1,4 @@
-package com.tr.pageobjects;
+package com.dr.pageobjects;
 
 import java.util.List;
 
@@ -28,8 +28,8 @@ public class HorairesEtAchats {
 	 @FindBy(id="rh-arrivee-gare")
 	 WebElement arriveeTextBox;
 	 
-	 @FindBy(className="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all")
-	 List<WebElement> departureArrivalOptions;
+	 /*@FindBy(className="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all")
+	 List<WebElement> departureArrivalOptions;*/
 	 
 	 @FindBy(id="rh_date")
 	 WebElement dateAllerSelector;
@@ -57,6 +57,9 @@ public class HorairesEtAchats {
 	 
 	 @FindBy(id="submit_rh_basic")
 	 WebElement submitButton;
+
+	@FindBy(id="passengers-display")
+	 WebElement passengerSectionButton;
 	 
 	 public HorairesEtAchats(WebDriver driver){
 
@@ -115,6 +118,12 @@ public class HorairesEtAchats {
 		}  
 		 
 	 }
+
+	public void openPassengerSection() {
+		
+		passengerSectionButton.click();
+		
+	}
 	 
 	 
 }

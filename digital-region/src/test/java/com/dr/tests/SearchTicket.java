@@ -2,23 +2,27 @@ package com.dr.tests;
 
 import org.testng.annotations.Test;
 
-import com.tr.pageobjects.HorairesEtAchats;
-import com.tr.pageobjects.ResultatsDeRecherche;
+import com.dr.pageobjects.HorairesEtAchats;
+import com.dr.pageobjects.ResultatsDeRecherche;
+import com.dr.entities.Trip;
+import com.dr.entities.Passenger;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+
 
 public class SearchTicket {
 	private WebDriver driver;
 	HorairesEtAchats horairesetachats;
 	ResultatsDeRecherche resultatsderecherche;
+	Trip trip;
+	Passenger passenger_1;
+	Passenger passenger_2;
 
     @BeforeTest
     public void setup() {
@@ -38,12 +42,18 @@ public class SearchTicket {
     	
     	//Arrange
     	horairesetachats = new HorairesEtAchats(driver);
-    	
+    	trip = new Trip("Rennes","St-Malo","17/11/2017","18/11/2017");
+    	passenger_1 = new Passenger(19,"Bretagne","carte jeune");
+    	passenger_2 = new Passenger(35,"Bretagne","");
+    	   	
     	//Act
     	horairesetachats.selectDepartGareMode();
-    	horairesetachats.enterGareDeDepart("Rennes");
-    	horairesetachats.enterGareArrivee("St-Malo");
-    	horairesetachats.selectDepartureDate("17/11/2017");
+    	horairesetachats.enterGareDeDepart(trip.getGareDepart());
+    	horairesetachats.enterGareArrivee(trip.getGareArrivee());
+    	horairesetachats.selectDepartureDate(trip.getDateDepart());
+    	horairesetachats.openPassengerSection();
+    	//horairesetachats.addPassenger(passenger_1);
+    	//horairesetachats.addPassenger(passenger_2);
     	horairesetachats.rechercherHoraires();   
     	
     	//Assert    	
