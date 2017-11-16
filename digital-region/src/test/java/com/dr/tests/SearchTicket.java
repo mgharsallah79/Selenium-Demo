@@ -48,10 +48,10 @@ public class SearchTicket {
     	
     	//Assert    	
     	resultatsderecherche = new ResultatsDeRecherche(driver);
-    	String actualTitle = resultatsderecherche.getPageTitle();
+    	String actualTitle = resultatsderecherche.getPageTitle().trim().toLowerCase();
     	System.out.println("titre de la page: " + actualTitle);
-        String expectedTitle = "TER Bretagne - Horaires de Rennes à St-Malo";
-        Assert.assertTrue(actualTitle.equals(expectedTitle));    	    	  	
+        String expectedTitle = "TER Bretagne - Horaires de Rennes à St-Malo".trim().toLowerCase();
+        Assert.assertEquals(actualTitle,expectedTitle);    	    	  	
     }
     
     
