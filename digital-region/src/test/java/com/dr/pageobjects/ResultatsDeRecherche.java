@@ -13,7 +13,7 @@ public class ResultatsDeRecherche {
 	        PageFactory.initElements(driver, this);
 	 }
 	 
-	 public String getPageTitle() {
+	 public String getPageTitle() throws Exception {
 		 
 		 return driver.getTitle();
 	 }

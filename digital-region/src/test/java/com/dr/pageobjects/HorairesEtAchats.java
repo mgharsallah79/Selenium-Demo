@@ -65,16 +65,18 @@ public class HorairesEtAchats {
 
 	        this._driver = driver;
 	        PageFactory.initElements(driver, this);
+	        if(!driver.getTitle().contains("SNCF TER Bretagne - Horaires"))
+	        	throw new WrongPageException("Page d'acceuil SNCF TER Bretagne introuvable");
 	 }
 	 
-	 public void selectDepartGareMode() {		 
+	 public void selectDepartGareMode()  throws Exception {		 
 		 
 		   if (!departGareRadioButton.isSelected()) {
 		       departGareRadioButton.click();
 		     }
 		 }
 	 
-	 public void enterGareDeDepart(String gareDeDepart) {
+	 public void enterGareDeDepart(String gareDeDepart) throws Exception {
 		 
 		 departTextBox.sendKeys(gareDeDepart);	
 		 _driver.findElement(By.xpath("//span[@title='Rennes']")).click();
@@ -82,7 +84,7 @@ public class HorairesEtAchats {
     	
 	 }
 	 
-	 public void enterGareArrivee(String gareArrivee) {
+	 public void enterGareArrivee (String gareArrivee) {
 		 
 		 arriveeTextBox.sendKeys(gareArrivee);
 		 _driver.findElement(By.xpath("//span[@title='St-Malo']")).click();

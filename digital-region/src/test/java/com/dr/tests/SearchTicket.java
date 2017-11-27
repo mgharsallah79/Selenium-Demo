@@ -5,10 +5,13 @@ import org.testng.annotations.Test;
 import com.dr.pageobjects.HorairesEtAchats;
 import com.dr.pageobjects.ResultatsDeRecherche;
 import com.dr.entities.Trip;
+import com.dr.framework.Configuration;
 import com.dr.entities.Passenger;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -16,33 +19,26 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 
-public class SearchTicket {
-	private WebDriver driver;
-	HorairesEtAchats horairesetachats;
-	ResultatsDeRecherche resultatsderecherche;
+public class SearchTicket extends CommonLib {
+	
+
 	Trip trip;
 	Passenger passenger_1;
 	Passenger passenger_2;
 
-    @BeforeTest
-    public void setup() {
-    	
-    	setupChromeDriver("https://www.ter.sncf.com/bretagne");
-    }
+	
+	public SearchTicket() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    
-    @AfterTest
-    public void teardown() {
-    	
-    	driver.quit();
-    }
               
     @Test
-    public void userCanSearchForaOneWayTicket() {
+    public void userCanSearchForaOneWayTicket() throws Exception {
     	
     	//Arrange
     	horairesetachats = new HorairesEtAchats(driver);
-    	trip = new Trip("Rennes","St-Malo","17/11/2017","18/11/2017");
+    	trip = new Trip("Rennes","St-Malo","27/11/2017","28/11/2017");
     	passenger_1 = new Passenger(19,"Bretagne","carte jeune");
     	passenger_2 = new Passenger(35,"Bretagne","");
     	   	
@@ -66,13 +62,5 @@ public class SearchTicket {
     
     
     //should be moved to utils package under a class that manages chromedriver
-	private void setupChromeDriver(String url) {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mahdigharsallah\\eclipse\\java-oxygen\\eclipse\\chromedriver.exe");
-    	ChromeOptions options = new ChromeOptions();
-    	options.addArguments("--start-maximized");
-    	options.addArguments("--test-type");
-    	driver = new ChromeDriver(options);
-    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(url);
-	}
+
 }
