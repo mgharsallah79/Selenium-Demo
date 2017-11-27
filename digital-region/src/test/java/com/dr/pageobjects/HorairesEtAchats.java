@@ -10,6 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.dr.framework.Control;
+import com.dr.framework.Edit;
+
 import org.openqa.selenium.WebElement;
 
 public class HorairesEtAchats {
@@ -17,25 +21,25 @@ public class HorairesEtAchats {
 	 WebDriver _driver;
 	
 	 @FindBy(id="dep-radio-gare")
-	 WebElement departGareRadioButton;
+	 public Control departGareRadioButton;
 	 
 	 @FindBy(id="dep-radio-adresse")
-	 WebElement departAdresseRadioButton;
+	 public Control departAdresseRadioButton;
 	 
 	 @FindBy(id="rh-depart-gare")
-	 WebElement departTextBox;
+	 public Edit departTextBox;
 	 
 	 @FindBy(id="rh-arrivee-gare")
-	 WebElement arriveeTextBox;
+	 public Edit arriveeTextBox;
 	 
 	 /*@FindBy(className="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all")
 	 List<WebElement> departureArrivalOptions;*/
 	 
 	 @FindBy(id="rh_date")
-	 WebElement dateAllerSelector;
+	 public Edit dateAllerSelector;
 	 
 	 @FindBy(id="rh_critere")
-	 WebElement critereAllerSelector;
+	 public Control critereAllerSelector;
 	 
 	 @FindBy(id="rh_heure")
 	 WebElement heureAllerSelector;
@@ -56,7 +60,7 @@ public class HorairesEtAchats {
 	 WebElement minuteRetourSelector;
 	 
 	 @FindBy(id="submit_rh_basic")
-	 WebElement submitButton;
+	 public Control submitButton;
 
 	@FindBy(id="passengers-display")
 	 WebElement passengerSectionButton;
@@ -71,14 +75,14 @@ public class HorairesEtAchats {
 	 
 	 public void selectDepartGareMode()  throws Exception {		 
 		 
-		   if (!departGareRadioButton.isSelected()) {
+		   
 		       departGareRadioButton.click();
-		     }
+		     
 		 }
 	 
 	 public void enterGareDeDepart(String gareDeDepart) throws Exception {
 		 
-		 departTextBox.sendKeys(gareDeDepart);	
+		 departTextBox.setText(gareDeDepart);	
 		 _driver.findElement(By.xpath("//span[@title='Rennes']")).click();
 		 //selectOptionFromAutosuggestionList(departureArrivalOptions,gareDeDepart);
     	
@@ -86,15 +90,14 @@ public class HorairesEtAchats {
 	 
 	 public void enterGareArrivee (String gareArrivee) {
 		 
-		 arriveeTextBox.sendKeys(gareArrivee);
+		 arriveeTextBox.setText(gareArrivee);
 		 _driver.findElement(By.xpath("//span[@title='St-Malo']")).click();
 		 //selectOptionFromAutosuggestionList(departureArrivalOptions,gareArrivee);
 	 }
 	 
 	 public void selectDepartureDate(String departureDate) {
 		 
-		 dateAllerSelector.clear();
-		 dateAllerSelector.sendKeys(departureDate);		 
+		 dateAllerSelector.setText(departureDate);		 
 	 }
 	 
 	 	 

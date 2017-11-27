@@ -29,7 +29,6 @@ public class SearchTicket extends CommonLib {
 	
 	public SearchTicket() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
               
