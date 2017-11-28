@@ -1,4 +1,4 @@
-package com.dr.entities;
+package com.dr.Models;
 
 public class roundTrip {
 

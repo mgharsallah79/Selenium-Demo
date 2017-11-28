@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.dr.tests.SearchTicket">
+      <class name="com.dr.tests.RechercheDeBilletsTest">
         <methods>
-          <include name="afterClass"/>
-          <include name="verifySearchButton"/>
-          <include name="beforeClass"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="RechercheBilletAllerRetour"/>
         </methods>
-      </class> <!-- com.dr.tests.SearchTicket -->
+      </class> <!-- com.dr.tests.RechercheDeBilletsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

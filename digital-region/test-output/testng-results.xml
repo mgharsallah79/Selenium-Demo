@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8578" started-at="2017-11-14T15:53:56Z" finished-at="2017-11-14T15:54:04Z">
+  <suite name="Default suite" duration-ms="11162" started-at="2017-11-28T18:16:26Z" finished-at="2017-11-28T18:16:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8578" started-at="2017-11-14T15:53:56Z" finished-at="2017-11-14T15:54:04Z">
-      <class name="com.dr.tests.SearchTicket">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.dr.tests.SearchTicket@7dc7cbad]" name="beforeClass" is-config="true" duration-ms="2543" started-at="2017-11-14T16:53:56Z" finished-at="2017-11-14T16:53:58Z">
+    <test name="Default test" duration-ms="11162" started-at="2017-11-28T18:16:26Z" finished-at="2017-11-28T18:16:37Z">
+      <class name="com.dr.tests.RechercheDeBilletsTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.dr.tests.RechercheDeBilletsTest@5c7fa833]" name="setup" is-config="true" duration-ms="6909" started-at="2017-11-28T19:16:26Z" finished-at="2017-11-28T19:16:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="verifyPageTitle()[pri:0, instance:com.dr.tests.SearchTicket@7dc7cbad]" name="verifyPageTitle" duration-ms="5285" started-at="2017-11-14T16:53:58Z" finished-at="2017-11-14T16:54:03Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="RechercheBilletAllerRetour()[pri:0, instance:com.dr.tests.RechercheDeBilletsTest@5c7fa833]" name="RechercheBilletAllerRetour" duration-ms="3378" started-at="2017-11-28T19:16:33Z" finished-at="2017-11-28T19:16:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyPageTitle -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.dr.tests.SearchTicket@7dc7cbad]" name="afterClass" is-config="true" duration-ms="740" started-at="2017-11-14T16:54:03Z" finished-at="2017-11-14T16:54:04Z">
+        </test-method> <!-- RechercheBilletAllerRetour -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.dr.tests.RechercheDeBilletsTest@5c7fa833]" name="teardown" is-config="true" duration-ms="857" started-at="2017-11-28T19:16:36Z" finished-at="2017-11-28T19:16:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- com.dr.tests.SearchTicket -->
+        </test-method> <!-- teardown -->
+      </class> <!-- com.dr.tests.RechercheDeBilletsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
