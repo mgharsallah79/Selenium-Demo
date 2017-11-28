@@ -16,6 +16,7 @@ public class Page {
 	
 	public Page(WebDriver webdriver) {
 		
+		super();
 		this.driver = webdriver;
 
 	}

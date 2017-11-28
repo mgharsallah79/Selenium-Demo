@@ -1,4 +1,4 @@
-package com.dr.tests;
+/*package com.dr.tests;
 
 import org.testng.annotations.Test;
 
@@ -63,3 +63,4 @@ public class SearchTicket extends CommonLib {
     //should be moved to utils package under a class that manages chromedriver
 
 }
+*/

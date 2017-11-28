@@ -13,23 +13,28 @@ import junit.framework.Assert;
 public class Control {
 
 	public static final long TIMEOUT = Configuration.timeout();
-	WebDriver driver;
+	private Page parent;
 	By locator;
 
-	public Control(WebDriver driver, By locator) {
+	public Control(Page parentValue, By locatorValue) {
 		super();
-		this.driver = driver;
-		this.locator = locator;
+		this.parent = parentValue;
+		this.locator = locatorValue;
+	}
+	
+	public WebDriver getDriver() {
+		
+		return parent.getDriver();
 	}
 	
 	public WebElement getElement() {
 		
-		return driver.findElement(locator);
+		return getDriver().findElement(locator);
 	}
 	
 	public boolean exists(long timeout) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, timeout);
+		WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
 		try {
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		} catch (TimeoutException e) {

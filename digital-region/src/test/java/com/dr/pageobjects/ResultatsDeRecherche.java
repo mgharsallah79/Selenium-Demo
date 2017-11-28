@@ -1,21 +1,24 @@
 package com.dr.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import com.dr.framework.Control;
+import com.dr.framework.Page;
 
-public class ResultatsDeRecherche {
-	
-	private WebDriver driver;
-	
-	 public ResultatsDeRecherche(WebDriver driver){
+public class ResultatsDeRecherche extends Page {
 
-	        this.driver = driver;
-	        PageFactory.initElements(driver, this);
-	 }
-	 
-	 public String getPageTitle() throws Exception {
-		 
-		 return driver.getTitle();
-	 }
+	public Control pageTitle;
+
+	public ResultatsDeRecherche(WebDriver driver) {
+
+		super(driver);
+		pageTitle = new Control(this, By.xpath("//h1[contains(.,'Résultats devotre recherche')]"));
+	}
+
+	/*
+	 * public String getPageTitle() throws Exception {
+	 * 
+	 * return driver.getTitle(); }
+	 */
 
 }
