@@ -25,7 +25,7 @@ public class Page {
 		return driver;
 	}
 
-	public Page Navigate(String url) {
+	public Page Navigate() {
 		
 		return this;
 	}
@@ -38,6 +38,11 @@ public class Page {
 		return element.exists();
 	}
 	
+/*	public boolean checkPageTitle(String title) {
+		
+		return getDriver().getTitle().contains(title);
+	}*/
+	
    
 	public File makeScreenShot(String destination) throws IOException {
 		
@@ -49,4 +54,5 @@ public class Page {
 		return output;
 		
 	}
+
 }
