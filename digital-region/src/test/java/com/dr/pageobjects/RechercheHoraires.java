@@ -1,5 +1,6 @@
 package com.dr.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.dr.framework.Configuration;
@@ -30,11 +31,12 @@ public class RechercheHoraires extends Page {
 
 	@FindBy(locator = "rh_heure")
 	public SelectList heureDepart;
+	
+	@FindBy(locator = "rh_heure_back")
+	public SelectList heureRetour;
 
 	public RechercheHoraires(WebDriver driver) {
 		super(driver);
-/*		if (!this.checkPageTitle("SNCF TER Bretagne - Horaires"))
-			throw new WrongPageException("Page d'acceuil SNCF TER Bretagne introuvable");*/
 	}
 
 	@Override
@@ -51,32 +53,46 @@ public class RechercheHoraires extends Page {
 	public void enterGareDeDepart(String gareDeDepart) throws Exception {
 
 		departTextBox.setText(gareDeDepart);
-		// this.getDriver().findElement(By.xpath("//span[@title='Rennes']")).click();
-		// arriveesDepartsOptions.selectByText(gareDeDepart);
+		selectOptionGare(gareDeDepart);
 
 	}
 
 	public void enterGareArrivee(String gareArrivee) {
 
 		arriveeTextBox.setText(gareArrivee);
-		// arriveesDepartsOptions.selectByText(gareArrivee);
-		// this.getDriver().findElement(By.xpath("//span[@title='St-Malo']")).click();
-		// selectOptionFromAutosuggestionList(departureArrivalOptions,gareArrivee);
+		selectOptionGare(gareArrivee);
 	}
 
 	public void selectDepartureDate(String departureDate) {
 
 		dateAller.setText(departureDate);
 	}
+	
+	public void selectDateRetour(String dateretour) {
+
+		dateRetour.setText(dateretour);
+	}
 
 	public void selectHeureDepart(String heuredepart) {
 
 		heureDepart.selectByText(heuredepart);
 	}
+	
+	public void selectHeureRetour(String heureretour) {
+
+		heureRetour.selectByText(heureretour);
+	}
 
 	public void rechercherHoraires() {
 
 		submitButton.click();
+	}
+
+	private void selectOptionGare(String Gare) {
+		String locator = "//span[@title='" + Gare + "']";
+		System.out.println("gare locator " + locator);
+		Control control = new Control(this,By.xpath(locator));
+		control.click();
 	}
 
 }

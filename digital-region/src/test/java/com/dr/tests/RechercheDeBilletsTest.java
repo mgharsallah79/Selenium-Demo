@@ -14,16 +14,17 @@ public class RechercheDeBilletsTest extends CommonLib {
 
 	@Test
 
-	public void RechercheBilletAllerRetour() throws IOException {
+	public void RechercheBilletAllerRetour() throws Exception {
 
 		Itineraire itineraire = itineraires.get(0);
 
-		recherchehoraire.departTextBox.setText(itineraire.getLieuDepart());
-		recherchehoraire.arriveeTextBox.setText(itineraire.getLieuArrivee());
-		recherchehoraire.dateAller.setText(itineraire.getDateDepart());
-		recherchehoraire.heureDepart.selectByText(itineraire.getHeureDepart());
-		recherchehoraire.dateRetour.setText(itineraire.getDateRetour());
-		recherchehoraire.submitButton.click();
+		recherchehoraire.enterGareDeDepart(itineraire.getLieuDepart());
+		recherchehoraire.enterGareArrivee(itineraire.getLieuArrivee());
+		recherchehoraire.selectDepartureDate(itineraire.getDateDepart());
+		recherchehoraire.selectHeureDepart(itineraire.getHeureDepart());
+		recherchehoraire.selectDateRetour(itineraire.getDateRetour());
+		recherchehoraire.selectHeureRetour(itineraire.getHeureRetour());
+		recherchehoraire.rechercherHoraires();
 		// recherchehoraire.makeScreenShot("./test-output/screenshots/image02.png");
 
 	}

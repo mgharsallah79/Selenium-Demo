@@ -27,6 +27,9 @@ public class Itineraire {
 
 	@ExcelCell(10)
 	private String dateRetour;
+	
+	@ExcelCell(11)
+	private String heureRetour;
 
 	@Override
 	public String toString() {
@@ -44,6 +47,10 @@ public class Itineraire {
 
 	public String getHeureDepart() {
 		return heureDepart;
+	}
+	
+	public String getHeureRetour() {
+		return heureRetour;
 	}
 
 	public String getDateRetour() {
