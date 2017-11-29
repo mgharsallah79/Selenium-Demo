@@ -38,10 +38,12 @@ public class Page {
 		return element.exists();
 	}
 	
-/*	public boolean checkPageTitle(String title) {
+	public String GetPageTitle() {
 		
-		return getDriver().getTitle().contains(title);
-	}*/
+		String title = getDriver().getTitle().toString();
+		System.out.println("page title: " + title);
+		return title;
+	}
 	
    
 	public File makeScreenShot(String destination) throws IOException {

@@ -12,8 +12,6 @@ import com.dr.framework.SelectList;
 
 public class RechercheHoraires extends Page {
 
-	// public Control departGareRadioButton;
-
 	@FindBy(locator = "rh-depart-gare")
 	public Edit departTextBox;
 
@@ -31,7 +29,7 @@ public class RechercheHoraires extends Page {
 
 	@FindBy(locator = "rh_heure")
 	public SelectList heureDepart;
-	
+
 	@FindBy(locator = "rh_heure_back")
 	public SelectList heureRetour;
 
@@ -63,11 +61,11 @@ public class RechercheHoraires extends Page {
 		selectOptionGare(gareArrivee);
 	}
 
-	public void selectDepartureDate(String departureDate) {
+	public void selectDepartureDate(String datealler) {
 
-		dateAller.setText(departureDate);
+		dateAller.setText(datealler);
 	}
-	
+
 	public void selectDateRetour(String dateretour) {
 
 		dateRetour.setText(dateretour);
@@ -77,7 +75,7 @@ public class RechercheHoraires extends Page {
 
 		heureDepart.selectByText(heuredepart);
 	}
-	
+
 	public void selectHeureRetour(String heureretour) {
 
 		heureRetour.selectByText(heureretour);
@@ -90,8 +88,7 @@ public class RechercheHoraires extends Page {
 
 	private void selectOptionGare(String Gare) {
 		String locator = "//span[@title='" + Gare + "']";
-		System.out.println("gare locator " + locator);
-		Control control = new Control(this,By.xpath(locator));
+		Control control = new Control(this, By.xpath(locator));
 		control.click();
 	}
 

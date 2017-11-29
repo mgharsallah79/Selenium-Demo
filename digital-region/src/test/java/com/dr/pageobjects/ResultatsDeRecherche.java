@@ -9,8 +9,6 @@ import com.dr.framework.Page;
 
 public class ResultatsDeRecherche extends Page {
 
-	@FindBy(locator = "xpath=(//h1[contains(.,'Résultats devotre recherche')]")
-	public Control pageTitle;
 
 	public ResultatsDeRecherche(WebDriver driver) {
 
@@ -18,10 +16,5 @@ public class ResultatsDeRecherche extends Page {
 		
 	}
 
-	/*
-	 * public String getPageTitle() throws Exception {
-	 * 
-	 * return driver.getTitle(); }
-	 */
 
 }

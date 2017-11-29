@@ -16,12 +16,14 @@ import com.dr.framework.Configuration;
 import com.dr.framework.PageFactory;
 import com.dr.pageobjects.RechercheHoraires;
 import com.dr.pageobjects.ResultatsDeRecherche;
+import com.dr.utils.ItineraireTestData;
 import com.poiji.bind.Poiji;
 
 public class CommonLib {
 	public WebDriver driver;
 	public RechercheHoraires recherchehoraire;
 	public ResultatsDeRecherche resultatsderecherche;
+	public ItineraireTestData itinerairetestdata;
 	public List<Itineraire> itineraires;
 
 	public CommonLib() {
@@ -30,11 +32,10 @@ public class CommonLib {
 	@BeforeTest
 	public void setup() throws Exception {
 
+		itinerairetestdata = new ItineraireTestData();
 		setupConfigFile();
 		String baseUrl = Configuration.get("base_url");
 		setupChromeDriver(baseUrl);
-		String testDataItineraires = Configuration.get("itineraire_test_data_path");
-		itineraires = Poiji.fromExcel(new File(testDataItineraires),Itineraire.class);
 	}
 
 	@AfterTest
@@ -53,9 +54,10 @@ public class CommonLib {
 		recherchehoraire = PageFactory.init(driver, RechercheHoraires.class);
 		recherchehoraire.Navigate();
 	}
-	
+
 	private void setupConfigFile() throws IOException {
 		Configuration.load();
 		Configuration.print();
 	}
+
 }
