@@ -19,7 +19,7 @@ public class RechercheDeBilletsTest extends CommonLib {
 	public void RechercheBilletAllerRetour() throws Exception {
 
 		//Arrange
-		Itineraire itineraire = itinerairetestdata.retrieveTestData(0);
+		Itineraire itineraire = itinerairetestdata.retrieveTestData(1);
 		String gareDeDepart = itineraire.getLieuDepart();
 		String gareArrivee =  itineraire.getLieuArrivee();
 		String dateDeDepart = itineraire.getDateDepart();
@@ -41,6 +41,6 @@ public class RechercheDeBilletsTest extends CommonLib {
 		String actualPageTitle = resultatsderecherche.GetPageTitle();
 		String expectedPageTitle = "TER Bretagne - Horaires de " + gareDeDepart +  " à " +  gareArrivee;
 		Assert.assertTrue(expectedPageTitle.equals(actualPageTitle));
-		// recherchehoraire.makeScreenShot("./test-output/screenshots/image02.png");
+		recherchehoraire.makeScreenShot("./test-output/screenshots/image03.png");
 	}
 }
